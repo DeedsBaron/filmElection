@@ -13,7 +13,7 @@ export const state = () => ({
   ],
 
   started:false,
-
+  finished:false,
 })
 
 export const mutations = {
@@ -55,6 +55,7 @@ export const mutations = {
 
   calculate(state) {
     let set = new Set();
+    let finished = false
 
     let films = 0
     for (let i = 0; i < state.Users.length; i++) {
@@ -87,6 +88,9 @@ export const mutations = {
     }
     if (films === 6 || films === 5 || films === 4)
       counterloops = 3
+
+    if (counterloops === 1)
+      finished = true
 
     console.log("films", films, "counterloops", counterloops)
     for (; counterloops > 0;) {
@@ -171,6 +175,11 @@ export const mutations = {
         }
         state.Users[i].win[j] = 0
       }
+    }
+
+    if (finished === true) {
+      state.finished = true
+      console.log('finished')
     }
   }
 }

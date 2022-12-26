@@ -13,6 +13,7 @@
     "@chakra-ui/vue": "^0.12.0",
     "@nuxtjs/emotion": "^0.1.0",
     "animate.css": "^4.1.1",
+    "confetti-js": "^0.0.18",
     "core-js": "^3.25.3",
     "lodash-es": "^4.17.21",
     "nuxt": "^2.15.8",
