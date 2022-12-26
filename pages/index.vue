@@ -28,7 +28,7 @@
     <br>
     <CButton v-on:click="calculate()">Next Round</CButton>
 
-<!--    <p>{{users()[0]}}</p>-->
+    <!--    <p>{{users()[0]}}</p>-->
 <!--    <p>{{users()[1]}}</p>-->
 
     <!--    <p>{{message}}</p>-->

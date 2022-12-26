@@ -7,22 +7,36 @@
           <CText font-size="sm">Films: </CText>
 
           <CStack spacing="2">
-            <CInput :class="animations"
+            <CInput :class="animation0()"
                     variant="outline"
                     placeholder=""
                     v-model="film0"
-                    :key="this.$store.state.Users.reRender"
+                    :key="this.$store.state.Users.Users[this.index].reRender0 + '0123123'"
             />
-            <CInput class="animate__animated animate__rollIn animate__slow"
+            <CInput :class="animation1()"
                     variant="outline"
                     placeholder=""
                     v-model="film1"
+                    :key="this.$store.state.Users.Users[this.index].reRender1 + '12134123'"
             />
-            <CInput class="animate__animated animate__rollIn animate__slow"
+            <CInput :class="animation2()"
                     variant="outline"
                     placeholder=""
                     v-model="film2"
+                    :key="this.$store.state.Users.Users[this.index].reRender2 + '2123123'"
             />
+<!--            <CInput :class="animation1()"-->
+<!--                    variant="outline"-->
+<!--                    placeholder=""-->
+<!--                    v-model="film1"-->
+<!--                    :key="this.$store.state.Users.Users[this.index].reRender1"-->
+<!--            />-->
+<!--            <CInput :class="animation2()"-->
+<!--                    variant="outline"-->
+<!--                    placeholder=""-->
+<!--                    v-model="film2"-->
+<!--                    :key="this.$store.state.Users.Users[this.index].reRender2"-->
+<!--            />-->
           </CStack>
         </CBox>
     </CFlex>
@@ -45,12 +59,6 @@ export default {
     CInput,
     CStack,
     CButton
-  },
-
-  data() {
-    return {
-      reRender: 0,
-    }
   },
 
   watch: {
@@ -84,9 +92,25 @@ export default {
         this.$store.commit('Users/updateFilms', {film: value, userIndex: this.index, filmIndex: 2})
       }
     },
-    animations () {
-      if (this.film0 == undefined) {
-        return "animate__animated animate__rotateOut animate__slow"
+  },
+  methods: {
+    animation0 () {
+        if ( this.$store.state.Users.Users[this.index].film0 === undefined) {
+          return "animate__animated animate__backOutUp animate__slow"
+        }
+        else
+          return "animate__animated animate__rollIn animate__slow"
+    },
+    animation1 () {
+      if ( this.$store.state.Users.Users[this.index].film1 === undefined) {
+        return "animate__animated animate__backOutUp animate__slow"
+      }
+      else
+        return "animate__animated animate__rollIn animate__slow"
+    },
+    animation2 () {
+      if ( this.$store.state.Users.Users[this.index].film2 === undefined) {
+        return "animate__animated animate__backOutUp animate__slow"
       }
       else
         return "animate__animated animate__rollIn animate__slow"
