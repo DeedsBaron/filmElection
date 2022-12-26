@@ -45,8 +45,4 @@ export default {
   build: {
     transpile: ['lodash-es']
   },
-  server: {
-    host: '0'
-  }
-
 }
